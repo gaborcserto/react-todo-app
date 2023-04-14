@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styles from './todoInput.module.scss';
+import {MdOutlineAdd} from "react-icons/md";
 
 function todoInput({addTodo}: { addTodo: (description: string) => void }) {
     const [description, setDescription] = useState("");
@@ -19,19 +19,20 @@ function todoInput({addTodo}: { addTodo: (description: string) => void }) {
     return (
         <form onSubmit={handleSubmit}>
             <div
-                className="flex items-center mb-8 transition drop-shadow-lg ease-in-out delay-150 hover: hover:drop-shadow-2xl duration-300">
-                <label htmlFor="description" className="sr-only">Add a new task</label>
+                className="flex items-center mb-8 drop-shadow-lg todo-add">
                 <input
                     id="description"
                     type="text"
                     value={description}
                     onChange={handleDescriptionChange}
                     placeholder="Add a new task..."
-                    className="bg-gray-800 text-gray-100 border-2 border-gray-600 rounded-l-lg px-4 py-2 w-full"
+                    className="bg-gray-800 text-gray-100 bg-gray-800/60 rounded-[20px] p-4 drop-shadow-lg w-full todo-add__input"
                 />
-                <button type="submit"
-                        className="bg-gray-600 border-2 border-gray-600 hover:bg-gray-700 text-gray-100 font-bold py-2 px-4 rounded-r-lg">Add
-                </button>
+                <span className="absolute inset-y-0 right-4 flex items-center pl-2 text-gray-600">
+                    <button type="submit" className="p-1 focus:outline-none focus:shadow-outline rounded-full todo-add__btn">
+                        <MdOutlineAdd />
+                    </button>
+                </span>
             </div>
         </form>
     );

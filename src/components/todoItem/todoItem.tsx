@@ -1,7 +1,5 @@
 import React, {useState} from "react";
-import {MdEdit, MdDelete, MdSave, MdCancel} from "react-icons/md";
-import styles from './todoItem.module.css';
-
+import {MdEdit, MdDelete, MdSave, MdCancel, MdCheck} from "react-icons/md";
 
 function TodoItem({
                       todo,
@@ -42,38 +40,42 @@ function TodoItem({
     }
 
     return (
-        <li className="todo-item bg-gray-800 rounded-lg p-4 my-4 drop-shadow-lg transition ease-in-out delay-150 hover: hover:drop-shadow-2xl duration-300">
+        <li className={`todo-item bg-gray-800/60 rounded-[20px] p-4 my-4 drop-shadow-lg backdrop-blur-sm ${todo.completed ? 'completed' : ''}`}>
             <div className="flex justify-between items-center">
-                <div className="flex flex-col w-full">
-                    <div className="flex items-center">
+                <div className="flex w-full">
+                    <label className="todo-item__checkbox shrink-0">
                         <input
-                            className="form-checkbox h-5 w-5 text-blue-500"
+                            className="hidden"
                             type="checkbox"
                             checked={todo.completed}
                             onChange={handleToggle}
                         />
-                        <div className="ml-2 flex-grow">
-                            {isEditing ? (
-                                <>
-                                    <input
-                                        className="bg-gray-800 text-gray-100 border-2 border-gray-600 rounded px-2 w-full"
-                                        type="text"
-                                        value={description}
-                                        onChange={event => setDescription(event.target.value)}
-                                    />
-                                </>
-                            ) : (
-                                <>
-                                    <p className="todo-description text-gray-400 px-4">{todo.description}</p>
-                                </>
-                            )}
+                        <div
+                            className="w-5 h-5 rounded-full border-2 border-gray-500 transition-all duration-200">
+                            <MdCheck className="w-4 h-4 text-gray-600 checkmark" />
                         </div>
+                    </label>
+                    <div className="flex-1">
+                        {isEditing ? (
+                            <>
+                                <input
+                                    className="bg-gray-800 text-gray-100 border-2 border-gray-600 rounded px-2 w-full"
+                                    type="text"
+                                    value={description}
+                                    onChange={event => setDescription(event.target.value)}
+                                />
+                            </>
+                        ) : (
+                            <>
+                                <p className="todo-item__description text-gray-400 px-4">{todo.description}</p>
+                            </>
+                        )}
                     </div>
-                    <div className="flex mt-1">
+                    <div className="shrink-0">
                         {isEditing ? (
                             <>
                                 <button
-                                    className="bg-gray-500 hover:bg-gray-700 text-gray-100 font-bold py-1 px-2 rounded mr-2"
+                                    className="duration-200 bg-gray-500 hover:bg-gray-700 text-gray-100 font-bold py-1 px-2 rounded mr-2"
                                     onClick={handleSave}><MdSave/></button>
                                 <button
                                     className="bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-1 px-2 rounded"
@@ -82,10 +84,10 @@ function TodoItem({
                         ) : (
                             <>
                                 <button
-                                    className="bg-gray-500 hover:bg-gray-700 text-gray-100 font-bold py-1 px-2 rounded mr-2"
+                                    className="transition-[background] ease-in-out duration-200 bg-gray-500 hover:bg-gray-duration-200 todo-edit bg-transparent hover:bg-gray-700 text-gray-100 p-1 rounded-full text-gray-500 hover:text-white"
                                     onClick={handleEdit}><MdEdit/></button>
                                 <button
-                                    className="bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-1 px-2 rounded"
+                                    className="todo-delete bg-transparent hover:bg-red-700 text-gray-100 p-1 rounded-full text-red-500 hover:text-white"
                                     onClick={handleDelete}><MdDelete/></button>
                             </>
                         )}

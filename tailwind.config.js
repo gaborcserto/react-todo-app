@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import sass from 'vite-plugin-sass';
+
 export default {
 	content: [
 		"./dist/**/*.html",
@@ -8,6 +10,8 @@ export default {
 	theme: {
 		extend: {},
 	},
-	plugins: [],
+	plugins: [
+		sass(),
+	]
 }
 

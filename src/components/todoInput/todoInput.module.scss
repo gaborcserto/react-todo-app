@@ -1,2 +1,6 @@
-.todoInputContainer {
+.todo-add {
+	&__btn {
+		background-color: #FEE140;
+		background-image: linear-gradient(0deg, #FEE140 0%, #FA709A 100%);
+	}
 }
