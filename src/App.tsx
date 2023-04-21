@@ -2,6 +2,7 @@ import useLocalStorage from './hooks/useLocalStorage'
 import TodoInput from "./components/todoInput";
 import TodoList from "./components/todoList";
 import {nanoid} from 'nanoid';
+import {RiCalendarTodoFill} from "react-icons/ri"
 import './App.scss'
 
 function TodoApp() {
@@ -48,7 +49,7 @@ function TodoApp() {
 
     return (
         <div className="App container mx-auto py-8">
-            <h1 className="text-3xl font-bold mb-4">Todo App</h1>
+            <h1 className="text-3xl font-bold mb-4">Todo App <RiCalendarTodoFill className="inline-block" /></h1>
             <TodoInput addTodo={addTodo}/>
             <TodoList
                 todos={todos}
