@@ -1,1 +1,1 @@
-export {default} from './todoButtons';
+export { default } from './todoButtons'

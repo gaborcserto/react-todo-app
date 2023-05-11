@@ -1,0 +1,52 @@
+.todo-item {
+  .todo-edit,
+  .todo-delete {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+  }
+
+  &__checkbox {
+    margin-top: 3px;
+
+    input[type='checkbox']:not(:checked) + .rounded-full {
+      background-color: transparent;
+      transition: background-color 0.3s linear;
+    }
+
+    input[type='checkbox']:not(:checked) + .rounded-full:hover {
+      background-color: rgb(0 0 0 / 0.05);
+    }
+
+    .checkmark {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.3s linear, opacity 0.3s linear;
+    }
+  }
+
+  &.completed {
+    input[type='checkbox']:checked + .rounded-full {
+      background: radial-gradient(circle, #60e8e5, #3dd2ed);
+      border-color: transparent;
+    }
+
+    input[type='checkbox']:checked + .rounded-full .checkmark {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .todo-item__description {
+      @apply line-through;
+      @apply text-opacity-50;
+    }
+  }
+
+  &:hover {
+    .todo-edit,
+    .todo-delete {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

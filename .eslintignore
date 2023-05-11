@@ -1,0 +1,6 @@
+*.css
+*.svg
+*.json
+webpack.config.js
+node_modules
+.idea
