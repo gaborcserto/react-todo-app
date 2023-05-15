@@ -16,3 +16,5 @@ This will start a server in http://localhost:5173
 - React
 - Tailwind CSS
 - Vite
+- Redux Toolkit
+- TypeScript
