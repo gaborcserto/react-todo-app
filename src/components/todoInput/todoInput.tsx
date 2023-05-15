@@ -23,6 +23,7 @@ function todoInput({ addTodo }: { addTodo: (description: string) => void }) {
         <input
           id="description"
           type="text"
+          autoComplete="off"
           value={description}
           onChange={handleDescriptionChange}
           placeholder="Add a new task..."
