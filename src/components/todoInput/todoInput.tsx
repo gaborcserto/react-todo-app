@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { MdOutlineAdd } from 'react-icons/md'
-import './todoInput.scss'
 
 function todoInput({ addTodo }: { addTodo: (description: string) => void }) {
   const [description, setDescription] = useState('')
@@ -19,7 +18,7 @@ function todoInput({ addTodo }: { addTodo: (description: string) => void }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex items-center mb-8 drop-shadow-lg todo-add">
+      <div className="todo-add flex items-center mb-8 drop-shadow-lg ">
         <input
           id="description"
           type="text"
@@ -27,12 +26,12 @@ function todoInput({ addTodo }: { addTodo: (description: string) => void }) {
           value={description}
           onChange={handleDescriptionChange}
           placeholder="Add a new task..."
-          className="bg-gray-800 text-gray-100 bg-gray-800/60 rounded-[20px] p-4 drop-shadow-lg w-full todo-add__input"
+          className="todo-add__input bg-gray-800 text-gray-100 bg-gray-800/60 rounded-[22px] p-4 drop-shadow-lg w-full outline-none"
         />
-        <span className="absolute inset-y-0 right-4 flex items-center pl-2 text-gray-600">
+        <span className="absolute inset-y-0 flex right-1 items-center px-1.5">
           <button
             type="submit"
-            className="p-1 focus:outline-none focus:shadow-outline rounded-full todo-add__btn"
+            className="todo-add__btn p-1 text-gray-100 block focus:outline-none focus:shadow-outline p-3 rounded-[18px] bg-gradient-to-r from-pink-600 to-yellow-600 hover:from-pink-500 hover:to-yellow-500 font-bold transition-all ease-in duration-75"
           >
             <MdOutlineAdd />
           </button>

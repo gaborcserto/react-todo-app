@@ -40,13 +40,9 @@ function TodoItem({
     setIsEditing(false)
     setDescription(todo.description)
   }
-
+  //todo-item bg-gray-800/60 rounded-[20px] p-4 my-4 drop-shadow-lg backdrop-blur-sm
   return (
-    <li
-      className={`todo-item bg-gray-800/60 rounded-[20px] p-4 my-4 drop-shadow-lg backdrop-blur-sm ${
-        todo.completed ? 'completed' : ''
-      }`}
-    >
+    <li className={`todo-item py-4 px-2 ${todo.completed ? 'todo-item--completed' : ''}`}>
       <div className="flex justify-between items-center">
         <div className="flex w-full">
           <label htmlFor={todo.id} className="todo-item__checkbox shrink-0">
@@ -57,8 +53,8 @@ function TodoItem({
               checked={todo.completed}
               onChange={handleToggle}
             />
-            <div className="w-5 h-5 rounded-full border-2 border-gray-500 transition-all duration-200">
-              <MdCheck className="w-4 h-4 text-gray-600 checkmark" />
+            <div className="todo-item__checkbox__wrapper w-5 h-5 rounded-[5px] border-2 border-cyan-500 transition-all duration-200">
+              <MdCheck className="checkmark w-4 h-4 text-gray-600" />
             </div>
           </label>
           <div className="flex-1">

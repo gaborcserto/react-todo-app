@@ -30,13 +30,13 @@ const todoButtons: React.FC<ButtonProps> = ({ isEditing, onSave, onCancel, onEdi
       ) : (
         <>
           <button
-            className="bg-transparent hover:bg-fray-700 text-gray-100 p-1 rounded-full text-gray-500 hover:text-white"
+            className="todo-item__edit bg-transparent hover:bg-fray-700 text-gray-100 p-1 rounded-full text-gray-500 hover:text-white"
             onClick={onEdit}
           >
             <MdEdit />
           </button>
           <button
-            className="bg-transparent hover:bg-red-700 text-gray-100 p-1 rounded-full text-red-500 hover:text-white"
+            className="todo-item__delete bg-transparent hover:bg-red-700 text-gray-100 p-1 rounded-full text-red-500 hover:text-white"
             onClick={onDelete}
           >
             <MdDelete />
