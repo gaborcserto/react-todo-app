@@ -33,6 +33,14 @@ export const todoSlice = createSlice({
       }
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase('todos/loadFromLocalStorage', (state, action) => {
+      const todos = localStorage.getItem('todos');
+      if (todos) {
+        state.todos = JSON.parse(todos);
+      }
+    });
+  },
 })
 
 export const { addTodo, toggleTodo, deleteTodo, editTodo } = todoSlice.actions

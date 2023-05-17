@@ -19,7 +19,7 @@ function TodoList({
     <>
       {incompleteTodos.length > 0 && (
         <>
-          <h2>Tasks - {incompleteTodos.length}</h2>
+          <h2>Task{incompleteTodos.length > 1 ? 's' : ''}  - {incompleteTodos.length}</h2>
           <ul className="todo-list bg-gray-800/60 rounded-[22px] px-4 py-2 my-4 drop-shadow-lg backdrop-blur-sm divide-y-2 divide-teal-500 divide-dashed">
             {incompleteTodos.map(todo => (
               <TodoItem
@@ -35,7 +35,9 @@ function TodoList({
       )}
       {completedTodos.length > 0 && (
         <>
-          <h2>Completed - {incompleteTodos.length}</h2>
+          <h2>
+            Completed Task{completedTodos.length > 1 ? 's' : ''} - {completedTodos.length}
+          </h2>
           <ul className="todo-list bg-gray-800/60 rounded-[22px] px-4 py-2 my-4 drop-shadow-lg backdrop-blur-sm divide-y-2 divide-teal-500 divide-dashed">
             {completedTodos.map(todo => (
               <TodoItem
