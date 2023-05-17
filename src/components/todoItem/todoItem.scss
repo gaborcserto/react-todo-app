@@ -9,18 +9,19 @@
   &__checkbox {
     margin-top: 3px;
 
-    .todo-item__checkbox__wrapper {
+    .checkmark {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.3s linear, opacity 0.3s linear;
+    }
+
+    &__wrapper {
       background-color: transparent;
       transition: background-color 0.3s linear;
 
       &:hover {
         background-color: rgb(0 0 0 / 0.05);
       }
-    }
-    .checkmark {
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0.3s linear, opacity 0.3s linear;
     }
   }
 
